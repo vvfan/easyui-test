@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Basic Layout - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="./easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="./easyui/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="./css/admin.css">
+	<script type="text/javascript" src="./easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="./easyui/jquery.easyui.min.js"></script>
+	<script type='text/javascript' src="./easyui/locale/easyui-lang-zh_CN.js"></script>
+	<script type='text/javascript' src="./js/admin.js"></script>
+</head>
+<body class="easyui-layout" style="width:100%">
+	<div data-options="region:'north'" style="height:70px;background:#58a2ed;padding:20px;">这是logo</div>
+	<div data-options="region:'south',split:true" style="height:50px;line-height:40px;background:#58a2ed;text-align:center;">这是版权信息</div>
+	<div data-options="region:'west',split:true" title="导航菜单" style="width:150px;">
+		<ul class="easyui-tree" data-options="url:'tree_data2.json',method:'get',animate:true,lines:true"></ul>
+	</div>
+	<div data-options="region:'center'">
+	
+		<div id="tt" class="easyui-tabs" data-options="tools:'#tab-tools'">
+			 <div title="主页" data-options="iconCls:'icon-house'" style="padding: 10px;height:100%;">
+			 
+			    <form id="ff" method="post">
+			    	<table>
+			    		<tr>
+			    			<td>Name:</td>
+			    			<td><input class="easyui-validatebox" type="text" name="name" data-options="required:true"></input></td>
+			    		</tr>
+			    		<tr>
+			    			<td>Email:</td>
+			    			<td><input class="easyui-validatebox" type="text" name="email" data-options="required:true,validType:'email'"></input></td>
+			    		</tr>
+			    		<tr>
+			    			<td>Subject:</td>
+			    			<td><input class="easyui-validatebox" type="text" name="subject" data-options="required:true"></input></td>
+			    		</tr>
+			    		<tr>
+			    			<td>Message:</td>
+			    			<td><textarea name="message" style="height:60px;"></textarea></td>
+			    		</tr>
+			    		<tr>
+			    			<td>Language:</td>
+			    			<td>
+			    				<select class="easyui-combobox" name="language"><option value="ar">Arabic</option><option value="bg">Bulgarian</option><option value="ca">Catalan</option><option value="zh-cht">Chinese Traditional</option><option value="cs">Czech</option><option value="da">Danish</option><option value="nl">Dutch</option><option value="en" selected="selected">English</option><option value="et">Estonian</option><option value="fi">Finnish</option><option value="fr">French</option><option value="de">German</option><option value="el">Greek</option><option value="ht">Haitian Creole</option><option value="he">Hebrew</option><option value="hi">Hindi</option><option value="mww">Hmong Daw</option><option value="hu">Hungarian</option><option value="id">Indonesian</option><option value="it">Italian</option><option value="ja">Japanese</option><option value="ko">Korean</option><option value="lv">Latvian</option><option value="lt">Lithuanian</option><option value="no">Norwegian</option><option value="fa">Persian</option><option value="pl">Polish</option><option value="pt">Portuguese</option><option value="ro">Romanian</option><option value="ru">Russian</option><option value="sk">Slovak</option><option value="sl">Slovenian</option><option value="es">Spanish</option><option value="sv">Swedish</option><option value="th">Thai</option><option value="tr">Turkish</option><option value="uk">Ukrainian</option><option value="vi">Vietnamese</option></select>
+			    			</td>
+			    		</tr>
+			    	</table>
+			    </form>
+			    <div style="text-align:left;padding:5px 5px 5px 25px">
+			    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">Submit</a>
+			    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">Clear</a>
+			    </div>
+			    
+			    
+			    <div style="padding:5px 5px 5px 25px">
+					<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#dlg').dialog('open')">Open</a>
+					<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#dlg').dialog('close')">Close</a>
+				</div>	
+			    
+			    
+			 </div>
+		</div>
+		<div id="tab-tools">
+			<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-add'" onclick="addPanel()"></a>
+			<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-remove'" onclick="removePanel()"></a>
+		</div>
+		
+	</div>
+		
+	<div id="mm" class="easyui-menu" style="width:120px;">
+		<div id="refresh" data-options="iconCls:'icon-reload'">刷新</div>
+		<div class="menu-sep"></div>
+		<div id="closecurrent">关闭当前</div>
+		<div id="closeall">关闭所有</div>
+		<div id="closeothers">关闭当前之外</div>
+		<div id="closeleft">关闭当前左侧</div>
+		<div id="closeright">关闭当前右侧</div>
+		<div class="menu-sep"></div>
+		<div id="exit">退出</div>
+	</div>
+		
+	
+		
+	<div id="dlg" class="easyui-dialog" title="Basic Dialog" style="width:400px;height:200px;padding:10px" data-options="
+		iconCls:'icon-save',
+		buttons:[{
+			text:'ok',
+			iconCls:'icon-ok',
+			handler:function(){
+				alert('ok');
+			}
+		},{
+			text:'cancel',
+			iconCls:'icon-cancel',
+			handler:function(){
+				alert('cancel');
+			}
+		}]
+		
+		">
+		The dialog content.
+	</div>
+		
+		
+</body>
+</html>
